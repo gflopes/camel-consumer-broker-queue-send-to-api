@@ -2,6 +2,8 @@ package br.com.gustavo.config;
 
 import org.apache.activemq.jms.pool.PooledConnectionFactory;
 import org.apache.qpid.jms.JmsConnectionFactory;
+import org.apache.qpid.jms.policy.JmsDefaultRedeliveryPolicy;
+import org.apache.qpid.jms.policy.JmsRedeliveryPolicy;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,6 +28,9 @@ public class BrokerConfig {
 	}
 
 	public JmsConnectionFactory getJmsConnectionFactory(String user, String password) {
+		final JmsDefaultRedeliveryPolicy redeliveryPolicy = new JmsDefaultRedeliveryPolicy();
+		redeliveryPolicy.setMaxRedeliveries(0);
+
 		final JmsConnectionFactory factory = new JmsConnectionFactory();
 
 		factory.setRemoteURI(this.brokerConnect);
