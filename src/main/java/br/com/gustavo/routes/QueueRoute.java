@@ -91,7 +91,7 @@ public class QueueRoute extends RouteBuilder {
             .log(EXCEPTION_MESSAGE)
             .setHeader("subject", simple(EXCEPTION_MESSAGE))
             .setHeader(Exchange.CONTENT_TYPE, constant(MediaType.TEXT_PLAIN))
-            .setBody(simple(EXCEPTION_MESSAGE + "\n\nMensagem:\n${exchangeProperty.originalRequest}"))
+            .setBody(simple(EXCEPTION_MESSAGE + "\n\nPayload:\n${exchangeProperty.originalRequest}"))
             .to(smtpUrl)
             .log(LoggingLevel.INFO, "Email sent.")
             .end();
