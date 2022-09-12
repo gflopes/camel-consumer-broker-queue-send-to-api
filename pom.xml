@@ -14,7 +14,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <fuse.version>7.3.1.fuse-731003-redhat-00003</fuse.version>
         <spring-boot.version>1.5.17.RELEASE</spring-boot.version>
-        <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
         <maven-jacoco-plugin.version>0.8.2</maven-jacoco-plugin.version>
     </properties>
 
@@ -85,8 +84,9 @@
         <defaultGoal>spring-boot:run</defaultGoal>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
+                <version>3.8.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>

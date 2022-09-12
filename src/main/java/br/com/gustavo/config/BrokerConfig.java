@@ -3,7 +3,6 @@ package br.com.gustavo.config;
 import org.apache.activemq.jms.pool.PooledConnectionFactory;
 import org.apache.qpid.jms.JmsConnectionFactory;
 import org.apache.qpid.jms.policy.JmsDefaultRedeliveryPolicy;
-import org.apache.qpid.jms.policy.JmsRedeliveryPolicy;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
